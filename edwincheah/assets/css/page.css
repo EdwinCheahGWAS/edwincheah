@@ -1,0 +1,121 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  /*
+      Blue: hsl(207, 90%, 61%)
+      Purple: hsl(250, 66%, 75%)
+      Pink: hsl(356, 66%, 75%)
+      Teal: hsl(174, 63%, 62%)
+  */
+
+  --hue: 257;
+  --sat: 36%;
+  --lig: 48%;
+  --first-color: hsl(var(--hue), var(--sat), var(--lig));
+  --first-color-alt: hsl(var(--hue), var(--sat), 57%); /* -4% */
+  --second-color: #570044;
+  --title-color: hsl(var(--hue), 12%, 15%);
+  --text-color: hsl(var(--hue), 12%, 45%);
+  --text-color-light: hsl(var(--hue), 8%, 75%);
+  --text-color-lighten: hsl(var(--hue), 8%, 89%);
+  --body-color: hsl(var(--hue), 100%, 99%);
+  --container-color: #fff;
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Fira Sans', sans-serif;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --h2-font-size: 2.5rem;
+    --h3-font-size: 2rem;
+    --normal-font-size: 1.25rem;
+    --small-font-size: 1.1rem;
+    --smaller-font-size: .9rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  transition: .3s;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--first-color);
+}
+
+
+.container{
+  width: 60%;
+  padding: 30px;
+  background-color: white;
+  margin: 0;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+h1{
+  color: var(--title-color);
+  font-size: 50px;
+  font-weight: 700;
+}
+
+p{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: var(--normal-font-size);
+}
+
+img{
+  height: 100vh;
+  min-width: 100vw;
+  opacity: 0.3;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a{
+background-color: var(--first-color);
+color: white;
+padding: 5px;
+border-radius: 5px;
+text-decoration: none;
+font-weight: 500;
+transition: .3s;
+}
+
+a:hover{
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+  padding: 6px;
+  font-weight: 500;
+}
+
+@media (max-width:968px){
+  .container{
+    min-width: 90vw;
+    border-radius: 20px;
+  }
+}

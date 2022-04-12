@@ -1,0 +1,595 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  /*
+      Blue: hsl(207, 90%, 61%)
+      Purple: hsl(250, 66%, 75%)
+      Pink: hsl(356, 66%, 75%)
+      Teal: hsl(174, 63%, 62%)
+  */
+
+  --hue: 257;
+  --sat: 36%;
+  --lig: 48%;
+  --first-color: hsl(var(--hue), var(--sat), var(--lig));
+  --first-color-alt: hsl(var(--hue), var(--sat), 57%); /* -4% */
+  --second-color: #570044;
+  --title-color: hsl(var(--hue), 12%, 15%);
+  --text-color: hsl(var(--hue), 12%, 45%);
+  --text-color-light: hsl(var(--hue), 8%, 75%);
+  --text-color-lighten: hsl(var(--hue), 8%, 89%);
+  --body-color: hsl(var(--hue), 100%, 99%);
+  --container-color: #fff;
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Fira Sans', sans-serif;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --h2-font-size: 2.5rem;
+    --h3-font-size: 2rem;
+    --normal-font-size: 1.25rem;
+    --small-font-size: 1.1rem;
+    --smaller-font-size: .9rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: .3s; /* For animation dark mode */
+}
+
+h1, h2, h3 {
+  color: var(--title-color);
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+footer{
+  background-color: var(--first-color);
+  text-align: center;
+  padding: 1.25rem;
+}
+
+.contributor{
+  padding: 0.5rem;
+  background-color: var(--body-color);
+  border: 1px solid transparent;
+  margin: auto;
+  width: 10rem;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.contributor:hover{
+  width: 10.5rem;
+  padding: 0.6rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3), 0 0 20px rgba(0,0,0,0.3);
+}
+
+h3{
+  color: var(--title-color);
+}
+
+/*=============== THEME ===============*/
+.change-theme{
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.25rem;
+  color: var(--first-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s;
+  padding: 10px;
+  border: var(--first-color) 3px solid;
+  border-radius: 10px;
+}
+
+.change-theme:hover{
+  font-weight: 700;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+}
+
+/*========== Variables Dark theme ==========*/
+body.dark-theme{
+  --first-color: #302059;
+  --title-color: hsl(var(--hue), 12%, 95%);
+  --text-color: hsl(var(--hue), 12%, 75%);
+  --body-color: hsl(var(--hue), 40%, 8%);
+  --container-color: hsl(var(--hue), 40%, 8%);
+}
+
+/*==========
+    Color changes in some parts of
+    the website, in light theme
+==========*/
+
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+mark{
+  background-color:var(--first-color);
+  color: white !important;
+  border-radius: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+  font-weight: 500;
+}
+
+.container {
+  /*max-width: 968px;->*/
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/*=============== PROFILE ===============*/
+.profile{
+  position: relative;
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+}
+
+.profile__container{
+  row-gap: 2rem;
+}
+
+.profile__data{
+  display: grid;
+  text-align: center;
+}
+
+.profile__perfil{
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-radius: 25%;
+  transition: 0.3s ease;
+}
+
+.profile__perfil img{
+  width: 100px;
+  border-radius: 25%;
+  transition: .3s ease;
+}
+
+.profile__border{
+  border: 3.5px solid var(--first-color);
+  justify-self: center;
+  width: 115px;
+  height: 115px;
+  border-radius: 25%;
+  display: grid;
+  place-items: center;
+  margin-bottom: .75rem;
+  transition: 0.5s ease;
+}
+
+.profile__border:hover{
+  box-shadow: 5px 5px 15px 5px rgba(95,74,149,0.3);
+}
+
+.profile__name{
+  font-size: var(--h2-font-size);
+}
+
+.profile__profession{
+  font-size: var(--normal-font-size);
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.profile__social{
+  display: flex;
+  justify-content: center;
+  column-gap: .75rem;
+  color: var(--title-color);
+  font-size: var(--h3-font-size);
+}
+
+.profile__social i{
+  padding: 6px;
+  color: #fff;
+  background-color:var(--first-color);
+  border: 1px transparent var(--title-color);
+  border-radius: 25%;
+}
+
+.profile__social i:hover{
+  padding: 7px;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+}
+
+.profile_social-link{
+  font-size: 1.25rem;
+  color: var(--title-color);
+  transition: .3s;
+}
+
+.profile__social-link: hover{
+  color: var(--first-color);
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+}
+
+/*.profile__info{
+  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
+  column-gap: 2.5rem;
+}
+
+.profile__info-group{
+text-align: center;
+}
+
+.profile__info-number{
+font-size: var(--normal-font-size);
+margin-bottom: .25rem;
+}
+
+.profile__info-description{
+font-size: svar(--smaller-font-size);
+font-weight: 500;
+}
+*/
+
+/*===INTRO===*/
+.intro{
+  background-color: var(--first-color);
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding: 2rem;
+}
+
+
+.intro__container{
+  background-color: var(--body-color);
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+/*=============== BUTTONS ===============*/
+
+.button{
+  display: inline-flex;
+  align-items: center;
+  column-gap: .5rem;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: .5rem;
+  transition: .3s;
+  box-shadow: 0 8px 25px hsla(var(--hue), var(--sat), var(--lig) .25)
+}
+
+.button i{
+  font-size: 1.25rem;
+}
+
+.button:hover {
+  background-color: var(--first-color-alt);
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+}
+
+.button__small {
+  padding: .75rem;
+  color: #fff;
+}
+
+.button__gray {
+  background-color: var(--text-color-lighten);
+  color: var(--title-color);
+}
+
+.button__gray:hover{
+  background-color: var(--text-color-light);
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+}
+/*=============== FILTERS TABS ===============*/
+.filters{
+  background: linear-gradient(90deg, rgba(95,74,149,0.2) 35%, rgba(48,26,59,0.3) 100%);
+}
+
+.filters__content{
+  margin: 2rem 0 2.5rem;
+  background-color: var(--first-color);
+  padding: .375rem;
+  border-radius: .75rem;
+  display: flex;
+  justify-content: space-between;
+  column-gap: .5rem;
+}
+
+.filters__button{
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  color: var(--title-color);
+  font-size: var(--normal-font-size);
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 600;
+  border-radius: .75rem;
+  cursor: pointer;
+  border: 3px solid var(--first-color);
+  background-color: var(--body-color);
+}
+
+.filters__button:hover{
+  border: 3px solid transparent;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+  color: var(--first-color);
+}
+
+/*=============== PROJECTS ===============*/
+.projects__content{
+  height: 100%;
+  width: calc(100% - 20px);
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  column-gap: 10px;
+  row-gap: 10px;
+  margin: auto;
+  padding-bottom: 2rem;
+}
+
+.projects__card{
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  background-color: var(--first-color);
+  transition: .3s ease;
+}
+
+.projects__card:hover{
+  box-shadow: 0 0 10px rgba(0,0,0,0.3), 0 0 20px rgba(0,0,0,0.3), 0 0 40px rgba(0,0,0,0.3);
+  width: 100%;
+}
+
+.projects__card img{
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  border-radius: 1rem;
+}
+
+.projects__modal{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: -100%;
+  left: 0;
+  background: linear-gradient(180deg, hsla(var(--hue), 24%, 4%, .3) 0%, hsla(var(--hue), 24%, 40%, .8) 95%);
+  display: grid;
+  align-items: flex-end;
+  padding: 1.5rem;
+  transition: .3s;
+}
+
+.projects__subtitle, .projects__title{
+  color: #fff;
+}
+
+.projects___subtitle{
+  font-size: var(--smaller-font-size);
+}
+
+.projects__title{
+  font-size: var(--h3-font-size);
+  margin-bottom: .75rem;
+  color: white;
+}
+
+.projects__title:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.projects__button{
+  padding: .25rem;
+}
+
+.projects__card:hover .projects__modal{
+  bottom: 0;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+}
+/*=============== SKILLS ===============*/
+
+.events__content{
+  height: 100%;
+  width: calc(100% - 20px);
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  column-gap: 10px;
+  row-gap: 10px;
+  margin: auto;
+  padding-bottom: 2rem;
+}
+
+.events__card{
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  background-color: var(--second-color);
+  transition: .3s ease;
+}
+
+.events__card:hover{
+  box-shadow: 0 0 10px rgba(0,0,0,0.3), 0 0 20px rgba(0,0,0,0.3), 0 0 40px rgba(0,0,0,0.3);
+}
+
+.events__card img{
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  border-radius: 1rem;
+}
+
+.events__modal{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: -100%;
+  left: 0;
+  background: linear-gradient(180deg, hsla(var(--hue), 24%, 4%, .3) 0%, var(--second-color));
+  display: grid;
+  align-items: flex-end;
+  padding: 1.5rem;
+  transition: .3s;
+}
+
+.events__subtitle, .events__title{
+  color: #fff;
+}
+
+.events___subtitle{
+  font-size: var(--smaller-font-size);
+}
+
+.events__title{
+  font-size: var(--h3-font-size);
+  margin-bottom: .75rem;
+}
+
+.events__title:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.events__button{
+  padding: .25rem;
+  background-color: #7a1063;
+}
+
+.events__card:hover .events__modal{
+  bottom: 0;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+}
+
+.filters [data-content]{
+  display: none;
+}
+
+.filters__active[data-content]{
+  display: grid;
+}
+/* Hide and show projects & skills */
+
+
+/* Activate button filter */
+
+
+/*=============== FOOTER ===============*/
+
+
+/*=============== SCROLL BAR ===============*/
+
+
+/*=============== BREAKPOINTS ===============*/
+
+@media (min-width:968px){
+  .projects__content{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    width: 50%;
+  }
+
+  .events__content{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    width: 50%;
+  }
+
+  .filters__content{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  .intro__container{
+    width: 50%;
+  }
+
+  .profile__perfil{
+    width: 125px;
+    height: 125px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 25%;
+    transition: 0.3s ease;
+  }
+
+  .profile__perfil img{
+    width: 125px;
+    border-radius: 25%;
+    transition: .3s ease;
+  }
+
+  .profile__border{
+    border: 6px solid var(--first-color);
+    justify-self: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 25%;
+    display: grid;
+    place-items: center;
+    margin-bottom: .75rem;
+  }
+}
+
+
+/* For medium devices */
+
+
+/* For large devices */
