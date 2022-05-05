@@ -86,7 +86,8 @@ footer{
 
 .contributor{
   padding: 0.5rem;
-  background-color: var(--body-color);
+  background-color: var(--first-color);
+  color: white;
   border: 1px solid transparent;
   margin: auto;
   width: 10rem;
