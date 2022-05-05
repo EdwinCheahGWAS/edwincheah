@@ -49,7 +49,7 @@ const sr = ScrollReveal({
     delay: 400,
 })
 
-sr.reveal(`.profile__container`)
+sr.reveal(`.profile__container, .container`)
 sr.reveal(`.filters__content`, {delay: 300})
 sr.reveal('.intro', {delay: 200})
 sr.reveal(`.filters`, {delay: 300})
