@@ -155,6 +155,8 @@ mark{
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 1.5rem;
+  background-image: radial-gradient(#674EA6 1.4000000000000001px, var(--body-color) 1.4000000000000001px);
+  background-size: 28px 28px;
 }
 
 .grid {
